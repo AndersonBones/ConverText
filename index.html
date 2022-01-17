@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Text</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Montserrat:wght@300&family=Poiret+One&family=Varela+Round&display=swap" rel="stylesheet">
+
+    <script src="./script.js" defer></script>
+
+</head>
+<body>
+
+    <section class="container1">
+        
+        <div class="title-container">
+            <h2>Bem Vindo ao ConvertText, uma ferramenta de Conversão de Texto.</h2>
+          
+            <p>Uma ferramenta de texto online muito útil onde você pode alternar entre letras minúsculas e maiúsculas, 
+                onde você pode capitalizar, minusculizar, misturar maiúsculas e minúsculas e transformar seu texto.</p>
+        </div>
+        
+        <div class="functions-container">
+            <button onclick="SentenceCase()">Sentence case</button> <!-- pendente -->
+            <button onclick="LowerCase()">Lower case</button>
+            <button onclick="UpperCase()">UPPER CASE</button>
+            <button onclick="AlternatingCase()">aLtErNaTiNg cAsE</button>
+            <button onclick="CapitalizedCase()">Capitalized case</button>
+            <button>Title case</button> <!-- pendente -->
+            <button onclick="InverseCase()">InVeRsE CaSe</button>
+            <button onclick="BoldCase()">Bold Case</button>
+            <button onclick="ItalicCase()">Italic Case</button>
+            <button onclick="UnderlineCase()">Underline Case</button>
+            <button onclick="MirrorCase()">Mirror Case</button>
+            <button onclick="WideText()">W i d e  T e x t</button>
+            <button onclick="StrikethroughCase()">Strikethrough Text</button>
+            <button onclick="ReverseCase()">Reverse Text</button>
+            <button onclick="UpsideDownCase()">Upside Down Text</button>
+            <button>Text to Morse code</button> <!-- pendente -->
+            <button>Text to Binary code</button> <!-- pendente -->
+            
+        </div>
+
+        <div class="text-area-container">
+            <div class="original-text-container">
+                <textarea id="original-text"  autofocus></textarea>
+                <button onclick="ClearArea()">Clear</button>
+            </div>
+            
+            <div class="modified-text-container">
+                <div id='modified-text'>
+                    <p id="texto-modificado"></p>
+                </div>
+                <button onclick="CopyClipBoard()">Copy Clipboard</button>
+            </div>
+            
+        </div>
+
+        
+    </section>
+
+    <section class="title-description">
+        <h2>Sobre as funções de conversão de texto</h3>
+    </section>
+
+    <section class="description-functions-container">
+        
+        
+        <div>
+            <h3>Sentence Case</h3>    
+            <p>
+                O conversor de maiúsculas e minúsculas permitirá que você cole qualquer texto que desejar, 
+                e ele a transformará automaticamente em uma frase estruturada totalmente formada.
+            </p>
+            
+            <p>
+                Funciona colocando em maiúscula a primeira letra de cada frase,
+                e, em seguida, transformará o restante do texto em letras minúsculas, bem como converterá é em É.
+                Cada letra após um ponto final será convertida em uma letra maiúscula.
+            </p>
+            
+            <p>Nota: no entanto, não colocará nomes ou lugares em maiúsculas.</p>
+
+            <p>Este é um exemplo de sentence case.</p>
+        </div>
+
+        <div>
+            <h3>Lower Case</h3>
+            <p>Se você está se perguntando como descapitalizar o texto, é exatamente isso que o conversor de texto em minúsculas permitirá que você faça - 
+                ele transforma todas as letras do seu texto em letras minúsculas.</p>
+
+            <p>este é um exemplo de lower case.</p>
+        </div>
+
+
+        <div>
+            <h3>Upper Case</h3>
+            <p>
+                O transformador de maiúsculas pegará qualquer texto que você tenha e gerará todas as letras em maiúsculas.
+                Ele essencialmente transformará todas as letras minúsculas em MAIÚSCULAS (assim como manterá as letras maiúsculas como letras maiúsculas).
+            </p>
+
+            <p>ESTE É UM EXEMPLO DE UPPER CASE.</p>
+        </div>
+
+        <div>
+            <h3>Capitalized Case</h3>
+            <p>
+                O conversor de maiúsculas converterá automaticamente a letra inicial de cada palavra em maiúscula e deixará as letras restantes como minúsculas.
+            </p>
+
+            <p>Este É Um Exemplo De Capitalized Case.</p>
+        </div>
+
+        <div>
+            <h3>Alternating Case</h3>
+            <p>
+                O conversor de maiúsculas e minúsculas permitirá que você transforme seu texto (não importa o formato atual)
+                em texto que alterna entre letras minúsculas e maiúsculas. Ele irá gerar uma letra maiúscula e depois uma letra minúscula dentro da mesma palavra.
+            </p>
+            <p>eStE É Um eXeMpLo dE aLtErNaTiNg cAsE.</p>
+        </div>
+
+        <div>
+            <h3>Title Case</h3>
+            <p>
+                O conversor de maiúsculas e minúsculas é perfeito para aqueles que estão um pouco inseguros sobre como intitular um próximo ensaio.
+                Essencialmente, garante que as letras corretas sejam maiúsculas no contexto de um título. 
+                Palavras como “um” serão deixadas todas em minúsculas e palavras importantes serão convertidas como “Título”.
+            </p>
+            <p>
+                Este é um Exemplo de Title Case.
+            </p>
+        </div>
+
+        <div>
+            <h3>Inverse Case</h3>
+            <p>O conversor de maiúsculas e minúsculas permitirá que inverta de letras maiúsculas para minúsculas e vice-versa.
+                Essencialmente, essa função converte cada letra de uma palavra para minúscula se ela inicialmente for maiúscula ou o contrário.
+            </p>
+
+            <p>
+                eSTE É UM eXEMPLO DE Inverse Case.
+            </p>
+        </div>
+
+        <div>
+            <h3>Bold Text</h3>
+            <p>Uma maneira rápida de colocar seu texto em negrito. Basta digitar o texto normal no campo de texto e vê-lo automaticamente convertido para a versão em negrito.</p>
+            
+            <b>Este é um Exemplo de Bold Text</b>
+        </div>
+
+        <div>
+            <h3>Italic Text</h3>
+            <p>Se você deseja colocar em itálico sua fonte, esta é uma ótima ferramenta. 
+                Digite seu texto normal e veja-o escrever automaticamente em uma inclinação, que você pode copiar e colar onde quiser.
+            </p>
+
+            <i>Este é um Exemplo de Italic Text.</i>
+        </div>
+
+        <div>
+            <h3>Underline text case</h3>
+            <p>
+                Sublinhe seu texto online com esta ferramenta de sublinhado. Escreva ou cole no conteúdo que você deseja sublinhar e, em seguida, 
+                você o verá gerado automaticamente sublinhado - que você pode copiar e colar onde quiser.
+            </p>
+
+            <p>E̲s̲t̲é̲ ̲é̲ ̲u̲m̲ ̲E̲x̲e̲m̲p̲l̲o̲ ̲d̲e̲ ̲U̲n̲d̲e̲r̲l̲i̲n̲e̲ ̲T̲e̲x̲t̲</p>
+        </div>
+
+        <div>
+            <h3>Mirror text case</h3>
+            <p>Use este gerador de texto espelhado como uma maneira rápida e fácil de alterar o texto padrão para a versão espelhada. 
+                Basta digitar o texto normal e regular no painel esquerdo e vê-lo convertido para o texto espelhado no lado direito.
+            </p>
+            <p>ƚxɘT ɿoɿɿiM ɘb olqmɘxɘ mu é ɘƚƨƎ</p>
+        </div>
+
+        <div>
+            <h3>Wide Case</h3>
+            <p>
+                Uma ferramenta geradora de texto simples de usar que amplia e espaça seu texto. Ele basicamente converte seu texto normal em um texto com espaçamento maior entre as letras do texto.
+            </p>
+
+            <p>Ｅｓｔｅ é ｕｍ Ｅｘｅｍｐｌｏ ｄｅ Ｗｉｄｅ Ｃａｓｅ</p>
+        </div>
+
+        <div>
+            <h3>Strikethrough Text</h3>
+            <p>Se você deseja uma maneira rápida de riscar seu texto, esta é uma ótima ferramenta. 
+                Digite o texto normal pelo qual deseja ser riscado e você o verá gerado automaticamente, pronto para copiar e colar.</p>
+
+            <p>E̶s̶t̶e̶ ̶é̶ ̶u̶m̶ ̶E̶x̶e̶m̶p̶l̶o̶ ̶d̶e̶ ̶S̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h̶ ̶T̶e̶x̶t̶ </p>
+        </div>
+
+
+        <div>
+            <h3>Reverse Text</h3>
+            <p>Se você deseja uma maneira rápida de fazer seu texto voltar para a frente, o gerador de texto reverso é ótimo.
+                Escreva seu texto como normal e depois veja-o ser invertido.
+            </p>
+
+            <p>txet esreveR ed olpmexE mu é etsE</p>
+        </div>
+
+        <div>
+            <h3>Upside Down Text</h3>
+            <p>Semelhante ao gerador de texto espelhado, bem como ao gerador de texto reverso, 
+                você pode virar seu texto de cabeça para baixo e de trás para frente com o Upside Down Text.
+            </p>
+
+            <p>ʇxǝ┴ uʍoᗡ ǝpᴉsd∩ ǝp oldɯǝxƎ ɯn é ǝʇsƎ</p>
+        </div>
+
+        <div>
+            <h3>Text to Morse code</h3>
+            <p>Se você está procurando traduzir mensagens de código morse em portugues simples ou o contrário, 
+                este gerador de tradução online pode fazer exatamente isso. Ele também vem com um player de áudio para ouvi-lo.
+            </p>
+            <p>-... . -- / ...- .. -. -.. ---</p>
+        </div>
+
+        <div>
+            <h3>Text to Binary code</h3>
+            <p>Traduza código binário para portugues e portugues para código binário com o seguinte gerador. Digite regularmente e obtenha uma série de 0 e 1 em troca.</p>
+            <p>01000010 01100101 01101101 00100000 01110110 01101001 01101110 01100100 01101111 </p>
+        </div>
+    
+    </section>
+    
+    <footer>
+        <p>COPYRIGHT © <a href="https://github.com/AndersonBones" target="_blank" >AndersonBones</a> - 2022</p>
+    </footer>
+</body>
+</html>
