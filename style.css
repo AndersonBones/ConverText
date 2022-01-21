@@ -66,29 +66,44 @@ body{
 #original-text{
     width: 100%;
     height: 100%;
-    background-color: #767676;
+
+    background-color: #232526;  /* fallback for old browsers */
+    
     padding: 10px;
     color: white;
     outline: none;
     word-wrap: break-word;
     border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    resize: none;
+    
+    box-shadow: inset 0 0 10px rgb(17, 17, 17);
+   /* border: 0.5px #00B4DB solid;*/
 }
 
 #modified-text{
     width: 100%;
     height: 100%;
     padding: 10px;
-    background-color: #767676;
+
+    background-color: #232526;  /* fallback for old browsers */
+    
     margin-bottom: 0.3rem;
     overflow: auto;
     border-radius: 5px;
+    border: none;
+    /*border: 0.5px #00B4DB solid;*/
+    box-shadow: inset 0 0 10px rgb(17, 17, 17);
 }
 
 #texto-modificado{
-    display: block;
-    word-wrap: break-word;
+    overflow: hidden;
 }
 
+.active-word-break{
+    word-break: break-all;
+}
 .description-functions-container{
     width: 60%;
     margin:  auto;

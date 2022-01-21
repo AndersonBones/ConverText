@@ -13,7 +13,7 @@ function SentenceCase(){
 
     if(OriginalText.value.length > 0){
         let Stringlist = OriginalText.value.trim().split('.');
-        let text = '';
+        let SentenceText = '';
         let cont = 0;
         let dotList = [];
 
@@ -23,24 +23,24 @@ function SentenceCase(){
             }
         }
 
-        for(var y=0; y<Stringlist.length; y++){
-            if(Stringlist[y].length == 0){
+        for(var i=0; i<Stringlist.length; i++){
+            if(Stringlist[i].length == 0){
                 cont+=1;
             }
         }
-
-        for(var u=0; u<Stringlist.length; u++){
-            if(Stringlist[u].length == 0){
-                Stringlist.splice(u,cont);
+        
+        for(var i=0; i<Stringlist.length; i++){
+            if(Stringlist[i].length == 0){
+                Stringlist.splice(i,cont);
             }
         }
-        
-        for(var x=0; x<Stringlist.length; x++){
-            Stringlist[x] = Stringlist[x].trim();
+
+        for(var i=0; i<Stringlist.length; i++){
+            Stringlist[i] = Stringlist[i].trim();
         }
 
-        for(var j=0; j<Stringlist.length; j++){
-            Stringlist[j] = Stringlist[j].replace(Stringlist[j][0], Stringlist[j][0].toUpperCase());
+        for(var i=0; i<Stringlist.length; i++){
+            Stringlist[i] = Stringlist[i].replace(Stringlist[i][0], Stringlist[i][0].toUpperCase());
         }
 
         for(var i=1; i<Stringlist.length; i++){
@@ -48,14 +48,16 @@ function SentenceCase(){
             
         }
         
-        for(var k=0; k<Stringlist.length; k++){
-         
-            text+=Stringlist[k];
+        for(var y=0; y<dotList.length; y++){
+            Stringlist[y] = Stringlist[y].replace(Stringlist[y], Stringlist[y]+'.');
+        } 
+
+        for(var i=0; i<Stringlist.length; i++){
+            SentenceText+=Stringlist[i];
         }
 
         
-        console.log(Stringlist);
-        ModifiedText.innerHTML = text;
+        ModifiedText.innerHTML = SentenceText;
     }
 
     else{
@@ -140,7 +142,41 @@ function CapitalizedCase(){
 }
 
 function TitleCase(){
+    let exceçoesPT = ['o','os','a','as','um','uns','uma','umas','ao',
+                     'à','às','da','das','do','dos','na','nas','no','nos',
+                     'num','nuns','numa','numas','dum','duns','duma','dumas','ante','após',
+                     'até','com','contra','de','desde','em','entre','para','perante','por','sem','sob','sobre',
+                     'e','nem','bem como','não só','mas também','não apenas','como ainda',
+                     'mas','porém','todavia','contudo','não obstante','no entanto','entretanto',
+                     'ou','ou...ou','quer...quer','ora...ora','já...já','seja... seja',
+                     'assim','logo','portanto','então','por isso','desse modo','por conseguinte',
+                     'dessa forma','pois', 'que','porque','porquanto'];
+    
+    let contents = OriginalText.value.split(' ');
+    let TitleText = '';
 
+    for(var i=0; i<exceçoesPT.length; i++){
+        exceçoesPT[i] = exceçoesPT[i].replace(exceçoesPT[i][0], exceçoesPT[i][0].toUpperCase());
+    }
+
+    for(var i=0; i<contents.length; i++){
+        contents[i] = contents[i].replace(contents[i][0], contents[i][0].toUpperCase());
+    }
+
+    for(var i=1; i<contents.length; i++){
+        for(var j=0; j<exceçoesPT.length; j++){
+            if(contents[i] == exceçoesPT[j]){
+                contents[i] = contents[i].replace(contents[i], contents[i].toLowerCase());
+            }
+        }
+        
+    }
+
+    for(var c=0; c<contents.length; c++){
+        TitleText+=contents[c]+' ';
+    }
+
+    ModifiedText.innerText = TitleText;
 }
 
 function InverseCase(){
@@ -223,7 +259,7 @@ function UnderlineCase(){
 
 function MirrorCase(){
     ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'none';
+    ModifiedText.style.fontStyle = 'normal';
     ModifiedText.style.textDecoration = 'none';
     ModifiedText.style.letterSpacing = 'normal';
 
@@ -235,9 +271,8 @@ function MirrorCase(){
 
 function WideText(){
     ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'none';
+    ModifiedText.style.fontStyle = 'normal';
     ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.letterSpacing = 'normal';
 
     ModifiedText.style.transform = 'none';
     ModifiedText.style.textAlign = 'left';
@@ -249,7 +284,7 @@ function WideText(){
 
 function StrikethroughCase(){
     ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'none';
+    ModifiedText.style.fontStyle = 'normal';
     ModifiedText.style.letterSpacing = 'normal';
     ModifiedText.style.transform = 'none';
     ModifiedText.style.textAlign = 'left';
@@ -262,7 +297,7 @@ function StrikethroughCase(){
 
 function ReverseCase(){
     ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'none';
+    ModifiedText.style.fontStyle = 'normal';
     ModifiedText.style.textDecoration = 'none';
     ModifiedText.style.letterSpacing = 'normal';
     ModifiedText.style.transform = 'none';
@@ -284,6 +319,48 @@ function UpsideDownCase(){
 }
 
 
+function MorseCode(){
+    let morse = ['/','.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.',
+                 '---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..',
+                 '.----','..---','...--','....-','.....','-....','--...','---..','----.','-----'];
+    
+    let alpha = [' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+                 '1','2','3','4','5','6','7','8','9','0'];
+
+    let Text = OriginalText.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    let MorseCode = '';
+    let contents = [];
+
+    
+    for(var i=0; i<Text.length; i++){
+        for(var c=0; c<alpha.length; c++){
+            if(Text[i] == alpha[c] ){
+                contents.push(Text[i].replace(Text[i], morse[c]+' '));
+            }
+
+        }
+    }
+
+    for(var x=0; x<contents.length; x++){
+        MorseCode+=contents[x];
+    }
+
+    
+    ModifiedText.style.fontWeight = 'normal'; 
+    ModifiedText.style.fontStyle = 'normal';
+    ModifiedText.style.textDecoration = 'none';
+    ModifiedText.style.letterSpacing = 'normal';
+    ModifiedText.style.transform = 'none';
+    ModifiedText.style.textAlign = 'left';
+
+    ModifiedText.style.fontSize = '20px';
+    ModifiedText.innerText = MorseCode;
+}
+
+function BinaryCode(){
+
+}
+
 function ClearArea(){
     OriginalText.value = '';
 }
@@ -292,3 +369,4 @@ function CopyClipBoard(){
     ModifiedText.select();
     navigator.clipboard.writeText(ModifiedText.value);
 }
+
