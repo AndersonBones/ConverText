@@ -1,6 +1,18 @@
 var OriginalText = document.getElementById('original-text');
 var ModifiedText = document.getElementById('texto-modificado');
 
+function replaceSpecialChars(str)
+{
+    str = str.replace(/[ÀÁÂÃÄÅ]/,"A");
+    str = str.replace(/[àáâãäå]/,"a");
+    str = str.replace(/[ÈÉÊË]/,"E");
+    str = str.replace(/[Ç]/,"C");
+    str = str.replace(/[ç]/,"c");
+
+    // o resto
+
+    return str.replace(/[^a-z0-9]/gi,''); 
+}
 
 function SentenceCase(){
     
@@ -12,54 +24,52 @@ function SentenceCase(){
     ModifiedText.style.letterSpacing = 'normal';
 
     if(OriginalText.value.length > 0){
-        let Stringlist = OriginalText.value.trim().split('.');
-        let SentenceText = '';
-        let cont = 0;
-        let dotList = [];
+        let spaceIndex = [];
+        let strContents = OriginalText.value.toLowerCase().split('.'); 
+        let sentenceText = '';
 
         for(var i=0; i<OriginalText.value.length; i++){
-            if(OriginalText.value[i] == '.'){
-                dotList.push('.');
+            if(OriginalText.value[i] == ' '){
+                spaceIndex.push(i);
             }
         }
 
-        for(var i=0; i<Stringlist.length; i++){
-            if(Stringlist[i].length == 0){
-                cont+=1;
-            }
-        }
-        
-        for(var i=0; i<Stringlist.length; i++){
-            if(Stringlist[i].length == 0){
-                Stringlist.splice(i,cont);
-            }
-        }
-
-        for(var i=0; i<Stringlist.length; i++){
-            Stringlist[i] = Stringlist[i].trim();
-        }
-
-        for(var i=0; i<Stringlist.length; i++){
-            Stringlist[i] = Stringlist[i].replace(Stringlist[i][0], Stringlist[i][0].toUpperCase());
-        }
-
-        for(var i=1; i<Stringlist.length; i++){
-            Stringlist[i] = ' '+Stringlist[i];
+        let fisrtLetter = [];
+        for(var i=0; i<strContents.length; i++){
             
-        }
-        
-        for(var y=0; y<dotList.length; y++){
-            Stringlist[y] = Stringlist[y].replace(Stringlist[y], Stringlist[y]+'.');
-        } 
+            if(strContents[i].match(/[a-zA-Z\u00C0-\u00FF ]+/i)){
+                for(var c=0; c<strContents[i].length; c++){
+                    if(strContents[i][c].match(/[a-zA-Z\u00C0-\u00FF ]+/i)){
+                        fisrtLetter.push(c);
+                    }
+                }
+                
+                strContents[i] = strContents[i].replace(strContents[i][fisrtLetter[0]], strContents[i][fisrtLetter[0]].toUpperCase());
+                
+            }
 
-        for(var i=0; i<Stringlist.length; i++){
-            SentenceText+=Stringlist[i];
+            fisrtLetter = [];
         }
 
-        
-        ModifiedText.innerHTML = SentenceText;
+        let dotAmount = 0;
+
+        for(var c=0; c<OriginalText.value.length; c++){
+            if(OriginalText.value[c] == '.'){
+                dotAmount+=1;
+            }
+        }
+
+        for(var i=0; i<dotAmount; i++){
+            strContents[i] = strContents[i].replace(strContents[i], strContents[i]+'.');
+        }
+
+        for(var i=0; i<strContents.length; i++){
+            sentenceText+=strContents[i];
+        }
+
+        ModifiedText.innerText = sentenceText;
+        ModifiedText.style.wordSpacing = '3px';
     }
-
     else{
         ModifiedText.innerText = '';
     }
@@ -133,7 +143,7 @@ function CapitalizedCase(){
 
     ModifiedText.style.fontWeight = 'normal';
     ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'none';
+    ModifiedText.style.fontStyle = 'normal';
     ModifiedText.style.transform = 'none';
     ModifiedText.style.textAlign = 'left';
     ModifiedText.style.letterSpacing = 'normal';
@@ -146,11 +156,8 @@ function TitleCase(){
                      'à','às','da','das','do','dos','na','nas','no','nos',
                      'num','nuns','numa','numas','dum','duns','duma','dumas','ante','após',
                      'até','com','contra','de','desde','em','entre','para','perante','por','sem','sob','sobre',
-                     'e','nem','bem como','não só','mas também','não apenas','como ainda',
-                     'mas','porém','todavia','contudo','não obstante','no entanto','entretanto',
-                     'ou','ou...ou','quer...quer','ora...ora','já...já','seja... seja',
-                     'assim','logo','portanto','então','por isso','desse modo','por conseguinte',
-                     'dessa forma','pois', 'que','porque','porquanto'];
+                     'e','nem','mas','porém','todavia','contudo','entretanto',
+                     'ou','assim','logo','portanto','então','pois', 'que','porque','porquanto'];
     
     let contents = OriginalText.value.split(' ');
     let TitleText = '';
@@ -211,7 +218,7 @@ function InverseCase(){
 
     ModifiedText.style.fontWeight = 'normal';
     ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'none';
+    ModifiedText.style.fontStyle = 'normal';
     ModifiedText.style.transform = 'none';
     ModifiedText.style.textAlign = 'left';
     ModifiedText.style.letterSpacing = 'normal';
@@ -223,10 +230,10 @@ function InverseCase(){
 function BoldCase(){
     
     ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'none';
     ModifiedText.style.transform = 'none';
     ModifiedText.style.textAlign = 'left';
     ModifiedText.style.letterSpacing = 'normal';
+    ModifiedText.style.fontStyle = 'normal';
 
     ModifiedText.style.fontWeight = 'bold';
     ModifiedText.innerText = OriginalText.value;
@@ -251,6 +258,7 @@ function UnderlineCase(){
     ModifiedText.style.textDecoration = 'underline';
     ModifiedText.style.transform = 'none';
     ModifiedText.style.textAlign = 'left';
+    ModifiedText.style.fontStyle = 'normal';
     
 
     ModifiedText.innerText = OriginalText.value;
@@ -353,20 +361,18 @@ function MorseCode(){
     ModifiedText.style.transform = 'none';
     ModifiedText.style.textAlign = 'left';
 
-    ModifiedText.style.fontSize = '20px';
+
     ModifiedText.innerText = MorseCode;
 }
 
-function BinaryCode(){
-
-}
 
 function ClearArea(){
     OriginalText.value = '';
 }
 
-function CopyClipBoard(){
-    ModifiedText.select();
-    navigator.clipboard.writeText(ModifiedText.value);
-}
+function copyToClipboard() {
+    navigator.clipboard.writeText(ModifiedText.innerText)
+    .then(() => { alert('Copy successful'); })
+    .catch((error) => { alert(`Copy failed! ${error}`); });
 
+}

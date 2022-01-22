@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convert Text</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Montserrat:wght@300&family=Poiret+One&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="icon" href="./texto-icon.png" >
 
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Hind+Madurai&family=Montserrat:wght@300&family=Poiret+One&family=Varela+Round&display=swap" rel="stylesheet">
     <script src="./script.js" defer></script>
 
 </head>
@@ -16,14 +17,14 @@
     <section class="container1">
         
         <div class="title-container">
-            <h2>Bem Vindo ao ConvertText, uma ferramenta de Conversão de Texto.</h2>
+            <h2>Bem Vindo ao Convert Text, uma ferramenta de Conversão de Texto.</h2>
           
             <p>Uma ferramenta de texto online muito útil onde você pode alternar entre letras minúsculas e maiúsculas, 
-                onde você pode capitalizar, minusculizar, misturar maiúsculas e minúsculas e transformar seu texto.</p>
+                onde você pode capitalizar, minusculizar, misturar maiúsculas e minúsculas e transformar seu texto completamente.</p>
         </div>
         
         <div class="functions-container">
-            <button onclick="SentenceCase()">Sentence case</button> <!-- pendente -->
+            <button onclick="SentenceCase()">Sentence case</button> 
             <button onclick="LowerCase()">Lower case</button>
             <button onclick="UpperCase()">UPPER CASE</button>
             <button onclick="AlternatingCase()">aLtErNaTiNg cAsE</button>
@@ -38,8 +39,7 @@
             <button onclick="StrikethroughCase()">Strikethrough Text</button>
             <button onclick="ReverseCase()">Reverse Text</button>
             <button onclick="UpsideDownCase()">Upside Down Text</button>
-            <button onclick="MorseCode()">Text to Morse code</button> <!-- pendente -->
-            <button>Text to Binary code</button> <!-- pendente -->
+            <button onclick="MorseCode()">Text to Morse code</button> 
             
         </div>
 
@@ -53,7 +53,7 @@
                 <div id='modified-text'>
                     <p id="texto-modificado"></p>
                 </div>
-                <button onclick="CopyClipBoard()">Copy Clipboard</button>
+                <button onclick="copyToClipboard()">Copy Clipboard</button>
             </div>
             
         </div>

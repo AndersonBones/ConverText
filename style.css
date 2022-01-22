@@ -10,7 +10,6 @@ body{
     background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
     color: white;
     font-family: 'Hind Madurai', sans-serif;
 }
@@ -21,12 +20,12 @@ body{
     background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     width: 80%;
-    margin: auto;
-    padding: 20px 10px;
+    margin: 20px auto;
+    padding: 15px 15px;
 
-    display: grid;
-    grid-template-rows: auto auto 100% auto;
-    grid-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     border-radius: 5px;
     border: 2.5px #767676 solid;
     box-shadow: 0 8px 10px -5px black;
@@ -36,7 +35,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 15px;
+    gap: 12px;
 }
 
 .title-container p{
@@ -53,6 +52,7 @@ body{
 .text-area-container{
     display: flex;
     flex-direction: row;
+
     justify-content: space-between;
     width: 100%;
     gap: 10px;
@@ -60,8 +60,14 @@ body{
 }
 
 .original-text-container, .modified-text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 50%;
     height: 250px;
+}
+.original-text-container > button, .modified-text-container > button{
+    margin-top: 10px;
 }
 #original-text{
     width: 100%;
@@ -89,7 +95,6 @@ body{
 
     background-color: #232526;  /* fallback for old browsers */
     
-    margin-bottom: 0.3rem;
     overflow: auto;
     border-radius: 5px;
     border: none;
@@ -174,23 +179,22 @@ button{
 
 button:hover{
     background-color: #1a1a1a;
+    color: #00B4DB;
 }
-
 a{
     text-decoration: none;
     transition: color .2s ease;
-    font-weight: bold;
 }
 
 a:visited{
-    
-    color: #3f3f3f;
+    color: #696969;
 }
 
 a:hover{
-    color: #1a1a1a;
+    color: #00B4DB;
 }
 footer{
+    background-color: #232526;
     text-align: center;
 }
 
