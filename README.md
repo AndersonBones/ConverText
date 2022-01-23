@@ -1,1 +1,1 @@
-# <img src="./texto-icon.png" width='40' style="margin-top: 20px"> ConvertText
+# <img src="./texto-icon.png" width='ConvertText
