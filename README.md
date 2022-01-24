@@ -23,6 +23,6 @@
 - [x] Text to Morse code
 
 ## ● ScreenShots 🖼️
-<img src="./animação.gif">
+<img src="./Assets/animação.gif">
 
 ● <a href='https://andersonbones.github.io/ConvertText/'>DEMO 👽</a>
