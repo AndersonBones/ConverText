@@ -16,6 +16,7 @@ function SentenceCase(){
         let spaceIndex = [];
         let strContents = OriginalText.value.toLowerCase().split('.'); /* recebe uma lista de strings separadas por '.' */
         let sentenceText = '';
+        
 
         /* armazena as posições dos espaços em branco na string */
         for(var i=0; i<OriginalText.value.length; i++){
@@ -25,22 +26,22 @@ function SentenceCase(){
         }
 
         /* faz um looping na lista de strings */
-        let fisrtLetter = [];   
+        let firstLetter = [];   
         for(var i=0; i<strContents.length; i++){
             
             if(strContents[i].match(/[a-zA-Z\u00C0-\u00FF ]+/i)){ /* verifica se cada string da lista contém letras */
                 for(var c=0; c<strContents[i].length; c++){ /* faz um looping em cada string da lista que contém letras */
                     if(strContents[i][c].match(/[a-zA-Z\u00C0-\u00FF ]+/i)){ /* identifica a primeira letra de cada string */
-                        fisrtLetter.push(c); /* armazena a posição da primeira letra de cada string da lista */
+                        firstLetter.push(c); /* armazena a posição da primeira letra de cada string da lista */
                     }
                 }
                 
                 /* substitui cada string da lista por uma string com sua primeira letra em maiúsculo */
-                strContents[i] = strContents[i].replace(strContents[i][fisrtLetter[0]], strContents[i][fisrtLetter[0]].toUpperCase());
+                strContents[i] = strContents[i].replace(strContents[i][firstLetter[0]], strContents[i][firstLetter[0]].toUpperCase());
                 
             }
 
-            fisrtLetter = []; /* esvazia a lista */
+            firstLetter = []; /* esvazia a lista */
         }
 
         let dotAmount = 0;
@@ -434,6 +435,6 @@ function ClearArea(){ /* limpa a area do texto original */
 
 function copyToClipboard() { /* copia o texto da area de texto modificado */
     navigator.clipboard.writeText(ModifiedText.innerText)
-    .then(() => { alert('Copy successful'); }).catch((error) => { alert(`Copy failed! ${error}`); });
+    .then(() => { alert('Copy successful'); }).catch((error) => { alert('Copy failed!'); });
 
 }
