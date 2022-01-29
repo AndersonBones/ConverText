@@ -13,17 +13,9 @@ function SentenceCase(){
 
     /* verificando se há algun texto para converter */
     if(OriginalText.value.length > 0){
-        let spaceIndex = [];
         let strContents = OriginalText.value.toLowerCase().split('.'); /* recebe uma lista de strings separadas por '.' */
         let sentenceText = '';
         
-
-        /* armazena as posições dos espaços em branco na string */
-        for(var i=0; i<OriginalText.value.length; i++){
-            if(OriginalText.value[i] == ' '){
-                spaceIndex.push(i);
-            }
-        }
 
         /* faz um looping na lista de strings */
         let firstLetter = [];   
@@ -56,7 +48,7 @@ function SentenceCase(){
             strContents[i] = strContents[i].replace(strContents[i], strContents[i]+'.');
         }
 
-        for(var i=0; i<strContents.length; i++){ /* concatena tadas as strings em uma string só */
+        for(var i=0; i<strContents.length; i++){ /* concatena todas as strings em uma string só */
             sentenceText+=strContents[i];
         }
 
@@ -216,13 +208,8 @@ function InverseCase(){
 
     if(OriginalText.value.length){
         let contents = OriginalText.value.split('');
-        let contentsModified = [];
+        let contentsModified = [...contents]; /* recebe uma cópia de contents */
         let inverseText = '';
-
-        /* cria uma cópia de contents */
-        for(var c=0; c<contents.length; c++){
-            contentsModified.push(contents[c]);
-        }
 
         /* identifica as letras maiúsculas e minúsculas */
         for(var i=0; i<contents.length; i++){
