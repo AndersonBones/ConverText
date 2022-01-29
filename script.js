@@ -195,6 +195,7 @@ function TitleCase(){ /* converte a primeira letra de cada palavra para maiúscu
     }
 }
 
+
 function InverseCase(){
 
     /* redefinindo o estilo do texto */
