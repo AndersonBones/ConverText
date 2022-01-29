@@ -2,9 +2,11 @@
 <p>Uma ferramenta de texto online muito útil onde você pode alternar entre letras minúsculas e maiúsculas, 
    onde você pode capitalizar, minusculizar, misturar maiúsculas e minúsculas e transformar seu texto completamente.</p>
 
-## ● Em construção... 🚧
+## ● Como Usar
+<p> Coloque o texto que você quer converter na área de texto à esquerda, depois clique na função de 
+   conversão que deseja e veja o seu texto convertido na área de texto à direita. </p>
 
-## ● Features ✅
+## ● Funcionalidades ✅
 - [x] Sentence Case
 - [x] Lower Case
 - [x] Upper Case
@@ -21,6 +23,8 @@
 - [x] Reverse Case
 - [x] Upside Down Case
 - [x] Text to Morse code
+- [x] Clear
+- [x] Copy to Clipboard  
 
 
 ## ● ScreenShots 🖼️
