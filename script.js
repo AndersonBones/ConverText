@@ -1,6 +1,9 @@
 var OriginalText = document.getElementById('original-text'); /* area de texto original */
 var ModifiedText = document.getElementById('texto-modificado'); /* area de texto modificado */
 
+function DefaultStyle_text(){
+    /* deixa o texto sem estilo */
+}
 function SentenceCase(){
     
     /* redefinindo o estilo do texto */
