@@ -1,18 +1,18 @@
 var OriginalText = document.getElementById('original-text'); /* area de texto original */
 var ModifiedText = document.getElementById('texto-modificado'); /* area de texto modificado */
 
-function DefaultStyle_text(){
-    /* deixa o texto sem estilo */
+function DefaultStyle_text(){ /* redefine o estilo do texto */
+    ModifiedText.style.fontWeight = 'normal'; 
+    ModifiedText.style.fontStyle = 'normal';
+    ModifiedText.style.textDecoration = 'none';
+    ModifiedText.style.letterSpacing = 'normal';
+    ModifiedText.style.transform = 'none';
+    ModifiedText.style.textAlign = 'left';
 }
 function SentenceCase(){
     
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 
     /* verificando se há algun texto para converter */
     if(OriginalText.value.length > 0){
@@ -68,12 +68,7 @@ function LowerCase(){
     let lowercaseText = OriginalText.value.toLowerCase(); /* converte o texto para texto minúsculo */
 
     /* redefinindo o estilo de texto */
-    ModifiedText.style.fontWeight = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 
     ModifiedText.innerText = lowercaseText; /* mostra o resultado */
 }
@@ -82,12 +77,7 @@ function UpperCase(){
     let uppercaseText = OriginalText.value.toUpperCase(); /* converte o texto para texto maiúsculo */
 
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 
     ModifiedText.innerText = uppercaseText; /* mostra o resultado */
 }
@@ -111,12 +101,7 @@ function AlternatingCase(){
     }
 
     /* redefinindo o estilo de texto */
-    ModifiedText.style.fontWeight = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 
     ModifiedText.innerText = alternatingText; /* mostra o resultado */
 }
@@ -145,12 +130,7 @@ function CapitalizedCase(){
     }
 
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 }
 
 function TitleCase(){ /* converte a primeira letra de cada palavra para maiúscula exceto as palavras abaixo */
@@ -202,12 +182,7 @@ function TitleCase(){ /* converte a primeira letra de cada palavra para maiúscu
 function InverseCase(){
 
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 
 
     if(OriginalText.value.length){
@@ -255,11 +230,7 @@ function InverseCase(){
 
 function BoldCase(){
     /* redefinindo o estilo do texto */
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.letterSpacing = 'normal';
-    ModifiedText.style.fontStyle = 'normal';
+    DefaultStyle_text();
 
     /* transformando o texto em bold */
     ModifiedText.style.fontWeight = 'bold';
@@ -271,11 +242,7 @@ function BoldCase(){
 function ItalicCase(){
 
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 
     /* transformando o texto em italico */
     ModifiedText.style.fontStyle = 'italic';
@@ -285,11 +252,7 @@ function ItalicCase(){
 
 function UnderlineCase(){
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal';    
-    ModifiedText.style.letterSpacing = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
-    ModifiedText.style.fontStyle = 'normal';
+    DefaultStyle_text();
     
     /* adicionando underline ao texto */
     ModifiedText.style.textDecoration = 'underline';
@@ -300,10 +263,7 @@ function UnderlineCase(){
 
 function MirrorCase(){
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 
     /* espelhando as letras */
     ModifiedText.style.transform = 'scale(-1,1)';
@@ -315,11 +275,7 @@ function MirrorCase(){
 
 function WideText(){
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
+    DefaultStyle_text();
 
     /* definindo o espaço entre os caracteres */
     ModifiedText.style.letterSpacing = '5px';
@@ -331,11 +287,7 @@ function WideText(){
 function StrikethroughCase(){
 
      /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.letterSpacing = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
+    DefaultStyle_text();
 
     /* risca o texto */
     ModifiedText.style.textDecoration = ' line-through';
@@ -346,12 +298,7 @@ function StrikethroughCase(){
 
 function ReverseCase(){
      /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.letterSpacing = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
+    DefaultStyle_text();
 
     ModifiedText.innerText = OriginalText.value.split('').reverse().join(''); /* inverte o texto */
 }
@@ -359,10 +306,7 @@ function ReverseCase(){
 
 function UpsideDownCase(){
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'none';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.letterSpacing = 'normal';
+    DefaultStyle_text();
 
     /* inverte o texto da direita pra esquerda e de coloca o texto de cabeça pra baixo */
     ModifiedText.style.transform = 'rotate(180deg)';
@@ -374,12 +318,7 @@ function UpsideDownCase(){
 
 function MorseCode(){
     /* redefinindo o estilo do texto */
-    ModifiedText.style.fontWeight = 'normal'; 
-    ModifiedText.style.fontStyle = 'normal';
-    ModifiedText.style.textDecoration = 'none';
-    ModifiedText.style.letterSpacing = 'normal';
-    ModifiedText.style.transform = 'none';
-    ModifiedText.style.textAlign = 'left';
+    DefaultStyle_text();
 
 
     if(OriginalText.value.length){
@@ -426,6 +365,7 @@ function ClearArea(){ /* limpa a area do texto original */
 
 function copyToClipboard() { /* copia o texto da area de texto modificado */
     navigator.clipboard.writeText(ModifiedText.innerText)
-    .then(() => { alert('Copy successful'); }).catch((error) => { alert('Copy failed!'); });
+    .then(() => { alert('Copy successful'); })
+    .catch((error) => { alert('Copy failed!'); });
 
 }
