@@ -364,8 +364,16 @@ function ClearArea(){ /* limpa a area do texto original */
 }
 
 function copyToClipboard() { /* copia o texto da area de texto modificado */
-    navigator.clipboard.writeText(ModifiedText.innerText)
-    .then(() => { alert('Copy successful'); })
-    .catch((error) => { alert('Copy failed!'); });
+    const textarea = document.createElement('textarea');
+	const text = ModifiedText.innerText;
+	
+
+	textarea.value = text;
+	document.body.appendChild(textarea);
+	textarea.select();
+	document.execCommand('copy');
+	textarea.remove();
+
+	alert('Text copied to clipboard');
 
 }
